@@ -25,3 +25,9 @@ Route::post('register', 'Api\UserController@register');
 
 Route::get('workshop', 'Api\WorkshopController@allWorkshop'); //di set di controller untuk authentication
 Route::middleware('auth:api')->get('auth/workshop', 'Api\WorkshopController@allWorkshop'); //di set di routes untuk authentication, jadi yg di controller gak perlu
+
+//routes for CRUD
+Route::post('workshop/create', 'Api\WorkshopController@create');
+Route::get('workshop/getData/{id}', 'Api\WorkshopController@showById');
+Route::put('workshop/update/{id}', 'Api\WorkshopController@update');
+Route::delete('workshop/delete/{id}', 'Api\WorkshopController@destroy');
