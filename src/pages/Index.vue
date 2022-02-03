@@ -13,7 +13,8 @@ export default defineComponent({
   name: 'PageIndex',
   data () {
     return {
-      token: ''
+      token: '',
+      workshop: {}
     }
   },
   mounted () {
@@ -26,7 +27,12 @@ export default defineComponent({
       axios.get('http://127.0.0.1:8000/api/workshop', { headers: {
         'Authorization': `Bearer ${this.token}`
       }}).then(response => {
-        console.log(response)
+        console.log(response.data)
+        this.workshop = response.data
+        this.workshop.data.map(s => {
+          console.log(s.id)
+        })
+        console.log(this.workshop)
       })
     }
   }
